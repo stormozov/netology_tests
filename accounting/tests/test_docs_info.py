@@ -19,7 +19,7 @@ class TestGetDocsInfo(TestCase):
                 self.assertEqual(
                     expected,
                     result,
-                    msg=f'Expected "{expected}" but got "{result}"'
+                    f'Expected "{expected}" but got "{result}"'
                 )
 
     @patch('builtins.input', side_effect=['2207 876234', '11-2', '10006'])
@@ -35,8 +35,9 @@ class TestGetDocsInfo(TestCase):
             'Аристарх Павлов'
         ]
         for expected in expected_results:
+            doc_owner_name: str = get_doc_owner_name()
             self.assertEqual(
-                get_doc_owner_name(),
+                doc_owner_name,
                 expected,
-                msg=f'Expected "{expected}" but got "{get_doc_owner_name()}"'
+                f'Expected "{expected}" but got "{doc_owner_name}"'
             )
